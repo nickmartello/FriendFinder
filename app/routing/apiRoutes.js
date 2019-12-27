@@ -1,11 +1,11 @@
 var friends = require("../data/friends");
 
 module.exports = function(app){
-    app.get("../data/friends.js", function(_req, res){
+    app.get("/api/friends", function(req, res){
         res.json(friends);
     });
 
-    app.post("../data/friends.js", function(req, res){
+    app.post("/api/friends", function(req, res){
         var bestMatch = {
             name: "",
             friendDifference: Infinity
@@ -14,11 +14,11 @@ module.exports = function(app){
         var userData = req.body;
         var userScores = userData.scores;
 
-        var totalDifference = "";
+     
 
         for(var i = 0; i < friends.length; i++){
             var currentFriend = friends[i];
-            totalDifference = 0;
+           var totalDifference = 0;
 
             console.log(currentFriend.name);
 
