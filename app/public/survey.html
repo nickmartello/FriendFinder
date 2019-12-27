@@ -230,6 +230,7 @@
       }
       $("#submit").on("click", function(event){
           event.preventDefault();
+          console.log("shelby it works!")
           function validateForm(){
               const isValid = true;
               $(".form-control").each(function(){
@@ -264,7 +265,8 @@
               $("#q10").val()
             ]
           };
-          $.post("../data/friends.js", userData, function(data){
+          $.post("/api/friends", userData)
+          .then(function(data){
                 $("#match-name").text(data.name);
                 $("#results-modal").modal("toggle");
             });
