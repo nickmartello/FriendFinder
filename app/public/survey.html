@@ -1,4 +1,7 @@
-<html lang="en"><head>
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
     <meta charset="UTF-8">
     <title>FriendFinder</title>
   
@@ -207,7 +210,7 @@
     </div>
   
     <script type="text/javascript">
-      var config = {
+      const config = {
           ".chosen-select": {},
           ".chosen-select-deselect": {
               allow_single_deselect: true
@@ -222,13 +225,13 @@
               width: "90%"
           }
       };
-      for (var selector in config){
+      for (const selector in config){
           $(selector).chosen(config[selector]);
       }
       $("#submit").on("click", function(event){
           event.preventDefault();
           function validateForm(){
-              var isValid = true;
+              const isValid = true;
               $(".form-control").each(function(){
                   if ($(this).val() === ""){
                       isValid = false;
@@ -245,7 +248,7 @@
         // If all required fields are filled
         if (validateForm()) {
           // Create an object for the user"s data
-          var userData = {
+          const userData = {
             name: $("#name").val(),
        
             scores: [
