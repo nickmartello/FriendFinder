@@ -34,3 +34,28 @@ The person with the closest match will be the one with the "least" amount of dif
 Once the closest match has been determined, it will display the result back to the user in the form of a modal pop-up.
 
 The result will display the name of the closest match.
+
+```javascript
+for(var i = 0; i < friends.length; i++){
+            var currentFriend = friends[i];
+           var totalDifference = 0;
+
+            console.log(currentFriend.name);
+
+            for(var j = 0; j < currentFriend.scores.length; j++){
+                var currentFriendScore = currentFriend.scores[j];
+                var currentUserScore = userScores[j];
+
+                totalDifference += Math.abs(parseInt(currentUserScore) - parseInt(currentFriendScore));
+            }
+            if (totalDifference <= bestMatch.friendDifference){
+                bestMatch.name = currentFriend.name;
+              
+                bestMatch.friendDifference = totalDifference;
+            }
+        }
+        friends.push(userData);
+
+        res.json(bestMatch);
+    });
+};
